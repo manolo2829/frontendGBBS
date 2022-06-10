@@ -7,6 +7,7 @@ import Cookies from 'universal-cookie';
 import Swal from 'sweetalert2'
 
 // damos la uri de nuestro backend
+// BACKEND EN DESARROLLO
 const URI = 'http://localhost:8000/users/'
 
 const Login = () => {
@@ -18,29 +19,13 @@ const Login = () => {
 
     const createUser = async (e) => {
         e.preventDefault()
-        const res = await Axios.post(URI, {email: email, username: username, password: password})
-        const alert = res.data
-        console.log(alert)
-        if(alert.alert === true){
-            Swal.fire({
-                title: alert.alertTitle,
-                text: alert.alertMessage,
-                icon: alert.alertIcon,
-                showConfirmButton: alert.showConfirmButton,
-                timer: alert.timer
-            }).then(() => {
-                window.location = alert.ruta
-            })
-
-        }else{
-            Swal.fire({
-                title: alert.alertTitle,
-                text: alert.alertMessage,
-                icon: alert.alertIcon,
-                showConfirmButton: alert.showConfirmButton,
-                timer: alert.timer
-            })
-        }
+        Swal.fire({
+            title: 'En desarrollo',
+            showConfirmButton: true,
+            icon: 'warning',
+        }).then(() => {
+            window.location = '/'
+        })
     }
 
     const cookies = new Cookies();
@@ -48,48 +33,13 @@ const Login = () => {
 
     const login = async (e) => {
         e.preventDefault()
-        console.log(username + ' - ' +password)
-        if(username === '' || password === ''){
-            Swal.fire({
-                title: 'Error',
-                text: 'Complete los campos',
-                icon: 'error',
-                showConfirmButton: true
-            })
-        }else{
-            const res = await Axios.get(URI+username+'/'+password)
-            const alert = res.data.alert
-            console.log(res.data.alert)
-            const cookie = res.data.cookie
-            console.log(res.data.cookie)
-            try{
-                cookies.set(cookie.name, cookie.token, { path: '/', expires: new Date(Date.now()+ 90 * 24 * 60 * 60 * 1000 ) });
-            }catch(error){
-                console.log('no hay usuario')
-            }
-            
-            
-            if(alert.alert === true){
-                Swal.fire({
-                    title: alert.alertTitle,
-                    text: alert.alertMessage,
-                    icon: alert.alertIcon,
-                    showConfirmButton: alert.showConfirmButton,
-                    timer: alert.timer
-                }).then(() => {
-                    window.location = alert.ruta
-                })
-
-            }else{
-                Swal.fire({
-                    title: alert.alertTitle,
-                    text: alert.alertMessage,
-                    icon: alert.alertIcon,
-                    showConfirmButton: alert.showConfirmButton,
-                    timer: alert.timer
-                })
-            }
-        }
+        Swal.fire({
+            title: 'En desarrollo',
+            showConfirmButton: true,
+            icon: 'warning',
+        }).then(() => {
+            window.location = '/'
+        })
     }
 
     return(
