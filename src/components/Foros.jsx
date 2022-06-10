@@ -1,4 +1,8 @@
 import Alien from '../img/alien.jpg'
+import Antena from '../img/antena.png'
+import Contacto from '../img/contacto.jpg'
+import Space from '../img/Space.jpg'
+import Radio from '../img/radioaficion.jpg'
 
 import '../styles/styles.scss'
 
@@ -16,6 +20,44 @@ const Foros = () => {
     const [favoritos, setFavoritos] = useState(false);
     const [creados, setCreados] = useState(false);
     const [foroNav, setForoNav] = useState(false);
+    const [arrForos, setArrForos] = useState([
+        {
+            title:'Nueva antena: BIG SIGNAL SkyLoop-46',
+            img: Antena,
+            subtitle: 'La empresa española BIG SIGNAL acaba de presentar su nueva antena para 50 y 70 Mhz: BIG SIGNAL SkyLoop-46. ',
+            description: 'Descubre nuestra nueva novedad, la antena BIG SIGNAL SkyLoop-46 un innovador diseño de antena loop Dual-Band de longitud de onda completa en 50 y 70 MHz. La antena BIG SIGNAL SkyLoop-46 te ofrece una excelente opción de antena omnidireccional para trabajar las bandas de 4 y 6 metros en una sola antena y un unico coaxial, ideal para espacios reducidos para no perderte ninguna esporadica esta temporada! Ventajas de elegir la antena BIG SIGNAL SkyLoop-46 frente a una antena vertical tradicional, dipolo, o similar?',
+            date: '03/06/2022 a las 13:00',
+            category: 'radioaficion',
+            creator: 'admin11'
+        },
+        {
+            title:'Hoy lunes ISS en 437.525 con colegio italiano!',
+            img: Contacto,
+            subtitle: 'Hoy lunes contacto desde la ISS con un colegio de Cerdeña, Italia. ',
+            description: 'La ISS llamará a la IKØWGF. Hoy lunes 6 de junio  a las 13.43 EA, 11.43 GMT Lo emitirán en: https://youtube.com/channel/UCVmGUvZkLAMhErRQQ6AkVMA',
+            date: '06/06/2022 a las 10:00',
+            category: 'noticias',
+            creator: 'admin11'
+        },
+        {
+            title:'Hoy sabado- Astronauta Samantha en italiano por 145.800',
+            img: Space,
+            subtitle: 'HOY SABADO contacto desde la ISS con estudiantes del Istituto Comprensivo “Losapio–S.F. Neri”, Gioia del Colle, Puglia, Italia.',
+            description: 'El contacto será en italiano con la astronauta Samantha Cristoforetti IZØUDF, siempre en 145.800. SABADO 4 de JUNIO a las 11.43 GMT en 145.800  Se emitirá aqui   https://www.youtube.com/channel/UCmfI6IhajshGME8jZTdjBrA, ',
+            date: '04/06/2022 a las 12:00',
+            category: 'noticias',
+            creator: 'admin11'
+        },
+        {
+            title:'¿Que es la Radioafición?',
+            img: Radio,
+            subtitle: 'La gran pregunta',
+            description: 'La radioafición es un servicio de la Unión Internacional de Telecomunicaciones que tiene por objeto: "La autoinstrucción, la intercomunicación y las investigaciones técnicas efectuados por aficionados, esto es, por personas debidamente autorizadas que se interesan en la radiotécnica, con carácter exclusivamente personal y sin fines de lucro". Esta definición aceptada universalmente por todas las naciones hace especial hincapié en la faz técnica y educativa de la actividad, la que se define oficial y formalmente como amateur, no como hobby',
+            date: '11/06/2022 a las 12:14',
+            category: 'radioaficion',
+            creator: 'admin11'
+        }
+    ])
 
     const navigate = useNavigate()
 
@@ -199,74 +241,30 @@ const Foros = () => {
                     </div>
                     <div className="col-lg-8 col-11 forosContent">
                         <div className="row">
-                            <div className="col-12 card mb-3" onClick={verForo}>
-                                <div className="row g-0 p-3">
-                                    <div className="col-md-7">
-                                        <div className="card-body">
-                                            <h5 className="card-title">¿Realmente estamos solos?</h5>
-                                            <p className="card-text">Radioaficionados chilenos contactaron con tripulantes de un ovni. Esto me llevo a hacerme la siguiente pregunta ¿Realmente estamos solos? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam, laborum!</p>
-                                            <p className="card-text"><small className="text-muted">CREADOR: juanito123</small></p>
+                            {
+                                arrForos.map( item => {
+                                    return(
+                                        <div className="col-12 card mb-3" onClick={verForo}>
+                                            <div className="row g-0 p-3">
+                                                <div className="col-md-7">
+                                                    <div className="card-body">
+                                                        <h5 className="card-title">{item.title}</h5>
+                                                        <p className="card-text">{item.subtitle}</p>
+                                                        <p className="card-text"><small className="text-muted">CREADOR: {item.creator}</small></p>
+                                                    </div>
+                                                    <div className="card-footer">
+                                                        <small className="text-muted">{item.date}</small>
+                                                    </div>
+                                                </div>
+                                                <div className="col-md-5 px-3">
+                                                    <img src={item.img} className="img-fluid rounded-start" alt="..."/>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div className="card-footer">
-                                            <small className="text-muted">21/05/2022</small>
-                                        </div>
-                                    </div>
-                                    <div className="col-md-5 px-3">
-                                        <img src={Alien} className="img-fluid rounded-start" alt="..."/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-12 card mb-3" onClick={verForo}>
-                                <div className="row g-0 p-3">
-                                    <div className="col-md-7">
-                                        <div className="card-body">
-                                            <h5 className="card-title">¿Realmente estamos solos?</h5>
-                                            <p className="card-text">Radioaficionados chilenos contactaron con tripulantes de un ovni. Esto me llevo a hacerme la siguiente pregunta ¿Realmente estamos solos? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam, laborum!</p>
-                                            <p className="card-text"><small className="text-muted">CREADOR: juanito123</small></p>
-                                        </div>
-                                        <div className="card-footer">
-                                            <small className="text-muted">21/05/2022</small>
-                                        </div>
-                                    </div>
-                                    <div className="col-md-5 px-3">
-                                        <img src={Alien} className="img-fluid rounded-start" alt="..."/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-12 card mb-3" onClick={verForo}>
-                                <div className="row g-0 p-3">
-                                    <div className="col-md-7">
-                                        <div className="card-body">
-                                            <h5 className="card-title">¿Realmente estamos solos?</h5>
-                                            <p className="card-text">Radioaficionados chilenos contactaron con tripulantes de un ovni. Esto me llevo a hacerme la siguiente pregunta ¿Realmente estamos solos? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam, laborum!</p>
-                                            <p className="card-text"><small className="text-muted">CREADOR: juanito123</small></p>
-                                        </div>
-                                        <div className="card-footer">
-                                            <small className="text-muted">21/05/2022</small>
-                                        </div>
-                                    </div>
-                                    <div className="col-md-5 px-3">
-                                        <img src={Alien} className="img-fluid rounded-start" alt="..."/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-12 card mb-3" onClick={verForo}>
-                                <div className="row g-0 p-3">
-                                    <div className="col-md-7">
-                                        <div className="card-body">
-                                            <h5 className="card-title">¿Realmente estamos solos?</h5>
-                                            <p className="card-text">Radioaficionados chilenos contactaron con tripulantes de un ovni. Esto me llevo a hacerme la siguiente pregunta ¿Realmente estamos solos? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam, laborum!</p>
-                                            <p className="card-text"><small className="text-muted">CREADOR: juanito123</small></p>
-                                        </div>
-                                        <div className="card-footer">
-                                            <small className="text-muted">21/05/2022</small>
-                                        </div>
-                                    </div>
-                                    <div className="col-md-5 px-3">
-                                        <img src={Alien} className="img-fluid rounded-start" alt="..."/>
-                                    </div>
-                                </div>
-                            </div>
+                                    )
+                                })
+                            }
+                            
                         </div>
                     </div>
                 </div>
