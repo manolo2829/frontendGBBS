@@ -11,7 +11,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 import Logo from '../img/Etec-fondo-blanco2.png'
 
-const URI = 'http://localhost:8000/users/'
+// const URI = 'http://localhost:8000/users/'
 
 
 const Menu = () => {
@@ -25,29 +25,29 @@ const Menu = () => {
     const navigate = useNavigate()
 
 
-    const isAuthenticated = async() =>{
-        try {
-            const cookie = cookies.get('jwt')
+    // const isAuthenticated = async() =>{
+    //     try {
+    //         const cookie = cookies.get('jwt')
         
-            if(cookie){
-                const res = await Axios.get(URI+cookie)
-                console.log(res.data)
-                if(res.data){
-                    setUser(res.data)
-                }else{
-                    navigate('/')
-                }
-            }else{
-                navigate('/')
-            }
-        } catch (error) {
-            console.log(error)
-        }
-    }
+    //         if(cookie){
+    //             const res = await Axios.get(URI+cookie)
+    //             console.log(res.data)
+    //             if(res.data){
+    //                 setUser(res.data)
+    //             }else{
+    //                 navigate('/')
+    //             }
+    //         }else{
+    //             navigate('/')
+    //         }
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+    // }
 
-    useEffect(() => {
-        isAuthenticated()
-    }, [])
+    // useEffect(() => {
+    //     isAuthenticated()
+    // }, [])
 
     const LogOut = async() =>{
         try {
@@ -128,7 +128,7 @@ const Menu = () => {
                             )
                         }
 
-                        {
+                        {/* {
                             user ? (
                                 <span className="navbar-text">
                                     <a className="nav-link dropdown-toggle" href="#!" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" onClick={(e) => setDropdown(!dropdown)}>
@@ -144,7 +144,7 @@ const Menu = () => {
                             ):(
                                 <span className='d-none'></span>
                             )
-                        }
+                        } */}
                     </div>
                 </div>
             </nav>

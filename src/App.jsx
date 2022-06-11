@@ -18,7 +18,7 @@ function App() {
         <Route path='/foros' element={<Foros/>}></Route>
         <Route path='/mensajeria' element={<Messages/>}></Route>
         <Route path='/emails' element={<Emails/>}></Route>
-        <Route path='/objetoforo' element={<ObjetoForo/>}></Route>
+        <Route path='/objetoforo/:id' element={<ObjetoForo/>}></Route>
       </Routes>
       <Footer/>
     </BrowserRouter>
